@@ -284,8 +284,8 @@ angular.module('orsApp')
                     $scope.resetTmcInterval();
                 });
                 $scope.resetTmcInterval = () => {
-                    $interval.cancel($scope.tmcInterval);
-                    $scope.tmcInterval = $interval(getTmc, 60000);
+                    // $interval.cancel($scope.tmcInterval);
+                    // $scope.tmcInterval = $interval(getTmc, 60000);
                 };
                 $scope.setMapOptions = () => {
                     const mapCenter = $scope.mapModel.map.getCenter();
@@ -1051,7 +1051,7 @@ angular.module('orsApp')
                     showCoverageOnHover: false,
                     disableClusteringAtZoom: 12
                 });
-                $scope.tmcInterval = $interval(getTmc, 6000);
+                //$scope.tmcInterval = $interval(getTmc, 6000);
 
                 function getTmc() {
                     console.log(true)
