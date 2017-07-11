@@ -384,6 +384,7 @@ angular.module('orsApp')
                     $scope.mapModel.geofeatures[layer].clearLayers();
                 };
                 $scope.reAddWaypoints = (waypoints, fireRequest = true, aaIcon = false) => {
+                    $scope.clearLayer('layerLandmarks');
                     $scope.clearLayer('layerRoutePoints');
                     let setCnt = 0;
                     angular.forEach(waypoints, (waypoint, idx) => {
