@@ -541,23 +541,33 @@ angular.module('orsApp')
                 $scope.addLandmark = (actionPackage) => {
                     const onEachFeature = (feature, layer) => {
                         let popupContent = '';
-                        if (feature.properties.name && feature.properties.name !== 'Unknown') popupContent = '<strong>' + feature.properties.name + '</strong>';
-                        else popupContent = '<strong>' + feature.properties.type.replace(/_/, ' ') + '</strong>';
+                        var type = feature.properties.type.charAt(0).toUpperCase() + feature.properties.type.replace(/_/, ' ').slice(1);
+
+                        if (feature.properties.name && feature.properties.name !== 'Unknown') {
+                            popupContent = '<strong>' + feature.properties.name + '</strong>';
+                            popupContent += '<br/>' + type;
+                        } else {
+                            popupContent = '<strong>' + type + '</strong>';
+                        }
+                        
+                        popupContent += '<br>Source: © OpenStreetMap-Contributors';
+                        
                         layer.bindPopup(popupContent, {
                             className: 'location-popup'
                         });
                     };
                     let geojson = L.geoJson(actionPackage.geometry, {
                             pointToLayer: function(feature, latlng) {
-                                let locationsIcon = null;
+                                let landmarksIcon = null;
                                 if (actionPackage.style) {
-                                    locationsIcon = L.divIcon(actionPackage.style);
+                                    landmarksIcon = L.divIcon(actionPackage.style);
                                 } else {
-                                    locationsIcon = L.divIcon(lists.landmarkIcon);
+                                    landmarksIcon = L.divIcon(lists.landmarkIcon);
                                 }
-                                locationsIcon.options.html = '<i class="fa fa-map-marker">&nbsp;</i>';
+                                landmarksIcon.options.html = '<span class="fa-stack fa-lg"><i class="fa fa-stack-2x fa-map-marker"></i><i class="fa fa-stack-1x icon-back"></i>' + lists.landmark_icons[feature.properties.type] + '</span>';
+                                //locationsIcon.options.html = lists.landmark_icons[feature.properties.type];//'<i class="fa fa-map-marker"><i class="fa fa-lg fa-institution"></i></i>';
                                 return L.marker(latlng, {
-                                    icon: locationsIcon,
+                                    icon: landmarksIcon,
                                     draggable: 'false'
                                 });
                             },
