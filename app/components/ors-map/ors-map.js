@@ -541,7 +541,7 @@ angular.module('orsApp')
                 $scope.addLandmark = (actionPackage) => {
                     const onEachFeature = (feature, layer) => {
                         let popupContent = '';
-                        var type = feature.properties.type.charAt(0).toUpperCase() + feature.properties.type.replace(/_/, ' ').slice(1);
+                        var type = feature.properties.type.charAt(0).toUpperCase() + feature.properties.type.replace(/_/g, ' ').slice(1);
 
                         if (feature.properties.name && feature.properties.name !== 'Unknown') {
                             popupContent = '<strong>' + feature.properties.name + '</strong>';
