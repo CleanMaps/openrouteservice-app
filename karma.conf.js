@@ -15,7 +15,22 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      ''
+        'bower_components/angular/angular.js',
+        'bower_components/angular-animate/angular-animate.js',
+        'bower_components/angular-cookies/angular-cookies.js',
+        'bower_components/angular-file-saver/dist/angular-file-saver.bundle.js',
+        'bower_components/angular-loading-bar/build/loading-bar.js',
+        'bower_components/angular-mocks/angular-mocks.js',
+        'bower_components/angular-sanitize/angular-sanitize.js',
+        'bower_components/angular-translate/angular-translate.js',
+        'bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js',
+        'bower_components/angular-ui-sortable/sortable.js',
+        'bower_components/angularjs-slider/dist/rzslider.js',
+        // '',
+        // '',
+        // '',
+        'app/**/*.js',
+        'test/js/*.js'
     ],
 
 
@@ -55,7 +70,7 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['PhantomJS','Firefox', 'Chrome'],
+    browsers: ['Firefox'],
 
 
     // Continuous Integration mode

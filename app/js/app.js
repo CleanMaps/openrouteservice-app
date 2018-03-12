@@ -132,9 +132,10 @@
               
             }
         ])
-        .controller('RootController', function(orsSettingsFactory, orsObjectsFactory, orsMapFactory, $route, $interval, $http) {
+        .controller('RootController', function($scope, orsSettingsFactory, orsObjectsFactory, orsMapFactory, $route, $interval, $http) {
             // add map
             let ctrl = this;
+            $scope.ID=5;
             ctrl.myOrsMap = orsMapFactory.initMap("map");
         })
         .run(function($animate, $injector) {
