@@ -1,7 +1,6 @@
-
-describe('doesItWork', function () {
+Qdescribe('suite description', function () {
     beforeEach(function() {
-        module('orsApp');
+        module('the_module');
     });
     // var createController;
     var $controller;
@@ -20,10 +19,10 @@ describe('doesItWork', function () {
     //         });
     //     };
     // }));
-    it('should check the scope object', function () {
+    it('does what the test should do', function () {
         var whatscope = {};
         // var controller = createController();
-        var controller = $controller('myCtrl', {$scope: whatscope});
+        var controller = $controller('Controller_Name', {$scope: whatscope});
         expect(whatscope.products[0]).toEqual('Milk');
 
     });
