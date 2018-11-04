@@ -297,7 +297,7 @@ module.exports = function(grunt) {
                         name: "production",
                         geocode: "https://api.openrouteservice.org/geocoding",
                         directions:
-                            "https://api.openrouteservice.org/directions",
+                            "http://localhost:8000/directions",
                         isochrones:
                             "https://api.openrouteservice.org/isochrones",
                         matrix: "https://api.openrouteservice.org/matrix",
