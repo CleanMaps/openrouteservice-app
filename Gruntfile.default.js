@@ -225,7 +225,7 @@ module.exports = function(grunt) {
             },
             build: {
                 options: {
-                    hostname: "localhost",
+                    hostname: "0.0.0.0",
                     port: 3035,
                     open: true,
                     base: "./build",
@@ -380,7 +380,6 @@ module.exports = function(grunt) {
             "less:development",
             "prettier",
             "copy:sliderLess",
-            "grunt:sliderMakeCss",
             "ngtemplates",
             "clean:task_rm_build",
             "copy:build",
